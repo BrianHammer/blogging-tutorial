@@ -2,18 +2,18 @@ import { categories } from "@/lib/placeholder-data";
 import React from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
-
+import { POSTS } from "@/lib/constants";
 const TopCategories = () => {
   return (
     <div className="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-2">
-      {categories.map((category) => (
-        <Button asChild key={category} variant={"secondary"}>
+      {POSTS.map((post) => (
+        <Button asChild key={post.href} variant={"secondary"}>
           {
             <Link
               className="hover:scale-110 transition-transform duration-150"
-              href={`/blog/${category}`}
+              href={post.href}
             >
-              {category}
+              {post.title}
             </Link>
           }
         </Button>
